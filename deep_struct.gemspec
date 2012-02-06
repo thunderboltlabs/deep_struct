@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors      = ["Thunderbolt Labs"]
   s.email        = "us@thunderboltlabs.com"
   s.homepage     = "https://github.com/thunderboltlabs/deep_struct"
-  s.summary      = "Converts ruby hashes and arrays into objects."
-  s.description  = "That's about it, really."
+  s.summary      = "Converts ruby hashes and arrays into objects.  Also works with JSON & YAML files."
+  s.description  = s.summary
 
   s.files        = `git ls-files app lib`.split("\n")
   s.platform     = Gem::Platform::RUBY

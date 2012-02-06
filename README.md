@@ -19,7 +19,7 @@ deep_struct[1].array             # => ["string", "another"]
 deep_struct[2].nested.first.name # => "Sue"
 ```
 
-Note that DeepStruct does its best to return nested DeepStruct objects, even when accessed through contained arrays.  It accomplishes this by returning DeepStruct::Array or DeepStruct::Hash objects.
+Note that DeepStruct does its best to return nested DeepStruct objects, even when accessed through contained arrays.  It accomplishes this by returning `DeepStruct::Array` or `DeepStruct::Hash` objects.
 
 ### Reading from files
 
