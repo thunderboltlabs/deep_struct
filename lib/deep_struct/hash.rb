@@ -14,9 +14,7 @@ class DeepStruct::Hash < Hash
   end
 
   def method_missing(key, *args, &block)
-    v = self[key]
-    raise NoMethodError.new("Unknown method #{key.inspect} for #{self.inspect}") unless v
-    return v
+    self[key]
   end
 
   def responds_to?(method)

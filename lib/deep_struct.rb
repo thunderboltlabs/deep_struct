@@ -1,3 +1,5 @@
+require 'json'
+
 module DeepStruct
   def self.from_data(data)
     case data
@@ -7,7 +9,12 @@ module DeepStruct
       raise "Unrecognized data: #{data.inspect}"
     end
   end
+
+  def self.from_file(path)
+    from_data(FileReader.new(path).data)
+  end
 end
 
 require "deep_struct/array"
 require "deep_struct/hash"
+require "deep_struct/file_reader"
