@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    deep_struct (1.0.3)
+    deep_struct (1.1.0)
 
 GEM
   remote: http://rubygems.org/

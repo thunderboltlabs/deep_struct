@@ -3,7 +3,8 @@ require 'spec_helper'
 describe DeepStruct do
   context "instance with an array of hashes" do
     let :deep_struct do
-      DeepStruct.from_data([{:one  => 1}, {"two" => 2}])
+      DeepStruct.from_data([{one:     1, foo: "bar"}, 
+                            {"two" => 2, foo: "bar"}])
     end
 
     subject { deep_struct }
@@ -14,9 +15,7 @@ describe DeepStruct do
 
     describe "#each" do
       let :result do
-        r = []
-        deep_struct.each { |h| r << h }
-        r
+        r = []; deep_struct.each { |h| r << h }; r
       end
 
       it "actually iterates on each element" do
@@ -26,6 +25,11 @@ describe DeepStruct do
       it "returns each element as a DeepStruct::Hash" do
         result.each {|e| e.should be_a(DeepStruct::Hash) }
       end
+    end
+
+    describe "#sample" do
+      subject { deep_struct.sample }
+      its(:foo) { should == "bar" }
     end
   end
 

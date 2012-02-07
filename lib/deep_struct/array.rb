@@ -16,4 +16,8 @@ class DeepStruct::Array < Array
       block.call(DeepStruct.convert_element_if_possible(e))
     end
   end
+
+  def sample(*args)
+    DeepStruct.convert_element_if_possible(super)
+  end
 end
