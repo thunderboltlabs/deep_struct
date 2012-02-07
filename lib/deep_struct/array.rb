@@ -1,9 +1,6 @@
 class DeepStruct::Array < Array
   def [](index)
-    v = super
-    return DeepStruct::Hash.new(v)  if v.is_a?(::Hash)
-    return DeepStruct::Array.new(v) if v.is_a?(::Array)
-    return v
+    DeepStruct.convert_element_if_possible(super)
   end
 
   # The annoyance of subclassing Array is that ruby implements many array
@@ -12,5 +9,11 @@ class DeepStruct::Array < Array
   
   def first
     self[0]
+  end
+
+  def each(&block)
+    self.to_a.each do |e|
+      DeepStruct.convert_element_if_possible(e)
+    end
   end
 end

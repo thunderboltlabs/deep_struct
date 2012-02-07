@@ -7,10 +7,7 @@ class DeepStruct::Hash < Hash
   end
 
   def [](key)
-    v = super(key)
-    return DeepStruct::Hash.new(v)  if v.is_a?(::Hash)
-    return DeepStruct::Array.new(v) if v.is_a?(::Array)
-    return v
+    DeepStruct.convert_element_if_possible(super)
   end
 
   def method_missing(key, *args, &block)

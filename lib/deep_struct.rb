@@ -10,6 +10,15 @@ module DeepStruct
     end
   end
 
+  def self.convert_element_if_possible(e)
+    case e
+    when ::Array then DeepStruct::Array.new(e)
+    when ::Hash  then DeepStruct::Hash.new(e)
+    else
+      e
+    end
+  end
+
   def self.from_file(path)
     from_data(FileReader.new(path).data)
   end
