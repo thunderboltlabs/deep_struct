@@ -12,8 +12,8 @@ class DeepStruct::Array < Array
   end
 
   def each(&block)
-    self.to_a.each do |e|
-      DeepStruct.convert_element_if_possible(e)
+    super do |e|
+      block.call(DeepStruct.convert_element_if_possible(e))
     end
   end
 end

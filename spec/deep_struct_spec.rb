@@ -13,10 +13,18 @@ describe DeepStruct do
     its("first.unknown") { should == nil }
 
     describe "#each" do
+      let :result do
+        r = []
+        deep_struct.each { |h| r << h }
+        r
+      end
+
+      it "actually iterates on each element" do
+        result.should_not be_empty
+      end
+
       it "returns each element as a DeepStruct::Hash" do
-        deep_struct.each do |ds_hash|
-          ds_hash.should be_a(DeepStruct::Hash)
-        end
+        result.each {|e| e.should be_a(DeepStruct::Hash) }
       end
     end
   end
