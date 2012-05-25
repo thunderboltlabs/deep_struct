@@ -27,6 +27,18 @@ describe DeepStruct do
       end
     end
 
+    describe "#map" do
+      let :result do
+        deep_struct.map { |h| h }
+      end
+
+      it { should be_a(DeepStruct::Array) }
+
+      it "returns each element as a DeepStruct::Hash" do
+        result.each {|e| e.should be_a(DeepStruct::Hash) }
+      end
+    end
+
     describe "#sample" do
       subject { deep_struct.sample }
       its(:foo) { should == "bar" }
