@@ -11,7 +11,7 @@ data = [
   { "nested": [ { "name" => "Sue" } ] },
 ]
 
-deep_struct = DeepStruct.from(data)
+deep_struct = DeepStruct.from_data(data)
 
 deep_struct[0].one               # => 1
 deep_struct[0].two               # => 2
