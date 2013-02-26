@@ -2,12 +2,8 @@ class DeepStruct::Hash < Hash
 
   def initialize(hash)
     hash.each do |k, v|
-      self[k.to_sym] = v
+      self[k.to_sym] = DeepStruct.convert_element_if_possible(v)
     end
-  end
-
-  def [](key)
-    DeepStruct.convert_element_if_possible(super)
   end
 
   def method_missing(key, *args, &block)
