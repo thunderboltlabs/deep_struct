@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'ruby_gntp'
   s.add_development_dependency "rspec"
   s.add_development_dependency "gem-release"
+  s.add_development_dependency "rake"
 end
