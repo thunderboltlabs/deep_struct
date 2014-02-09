@@ -1,4 +1,5 @@
 require 'json'
+require 'yaml'
 
 module DeepStruct
   def self.from_data(data)
