@@ -2,6 +2,8 @@
 
 A library to access nested hashes and arrays in an object oriented way.
 
+_Requires Ruby 1.9.3 or higher_
+
 ## Examples
 
 ``` ruby
